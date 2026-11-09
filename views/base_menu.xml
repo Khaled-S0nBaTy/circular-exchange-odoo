@@ -1,0 +1,11 @@
+<odoo>
+    <menuitem
+            id="circular_exchange"
+            name="Circular Exchange"
+    />
+    <menuitem
+            id="materials"
+            name="Materials"
+            parent="circular_exchange"
+    />
+</odoo>

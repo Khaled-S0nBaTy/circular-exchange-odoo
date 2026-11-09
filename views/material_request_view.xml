@@ -1,0 +1,63 @@
+<odoo>
+    <record id="material_request_view_tree" model="ir.ui.view">
+        <field name="name">material request tree</field>
+        <field name="model">material.request</field>
+        <field name="arch" type="xml">
+            <tree multi_edit="1">
+                <field name="name"/>
+                <field name="buyer_company_id"/>
+                <field name="material_category_id"/>
+                <field name="requested_qty"/>
+                <field name="unit_of_measure"/>
+                <field name="destination_city"/>
+                <field name="destination_country_id"/>
+                <field name="needed_date"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="material_request_view_form" model="ir.ui.view">
+        <field name="name">material request form</field>
+        <field name="model">material.request</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <header>
+                        <button name="action_find_matches" type="object" string="Find Matches" class="oe_highlight"/>
+                        <field name="status" widget="statusbar"/>
+                    </header>
+                    <group>
+                        <group string="Group 1">
+                            <field name="name"/>
+                            <field name="buyer_company_id"/>
+                            <field name="material_category_id"/>
+                            <field name="requested_qty"/>
+                            <field name="remaining_qty"/>
+
+                        </group>
+                        <group string="Group 2">
+                            <field name="unit_of_measure"/>
+                            <field name="destination_city"/>
+                            <field name="destination_country_id"/>
+                            <field name="needed_date"/>
+                            <field name="status"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="material_request_action" model="ir.actions.act_window">
+        <field name="name">material request action</field>
+        <field name="res_model">material.request</field>
+    </record>
+
+    <menuitem
+            id="material_request_tree_menu"
+            name="Materials Request List"
+            parent="materials"
+            action="material_request_action"
+    />
+</odoo>

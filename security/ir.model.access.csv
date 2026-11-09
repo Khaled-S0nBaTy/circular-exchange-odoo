@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_material_list,access_material_list,model_material_list,,1,1,1,1
+access_material_category,access_material_category,model_material_category,,1,1,1,1
+access_material_request,access_material_request,model_material_request,,1,1,1,1
+access_material_offer,access_material_offer,model_material_offer,,1,1,1,1

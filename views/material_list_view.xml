@@ -1,0 +1,64 @@
+<odoo>
+    <record id="material_view_tree" model="ir.ui.view">
+        <field name="name">material tree</field>
+        <field name="model">material.list</field>
+        <field name="arch" type="xml">
+            <tree multi_edit="1">
+                <field name="name"/>
+                <field name="material_type"/>
+                <field name="available_qty"/>
+                <field name="material_category_id"/>
+                <field name="pickup_city"/>
+                <field name="supplier_id"/>
+                <field name="country_id"/>
+                <field name="unit_of_measure"/>
+                <field name="available_date"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="material_view_form" model="ir.ui.view">
+        <field name="name">material form</field>
+        <field name="model">material.list</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <header>
+                        <button name="action_create_offer" type="object" class="oe_highlight" string="Create Offer"
+                                invisible="not context.get('from_material_request_id')"/>
+                        <field name="status" widget="statusbar"/>
+                    </header>
+                    <group>
+                        <group string="Group 1">
+                            <field name="name"/>
+                            <field name="material_type"/>
+                            <field name="available_qty"/>
+                            <field name="material_category_id"/>
+                        </group>
+                        <group string="Group 2">
+                            <field name="pickup_city"/>
+                            <field name="supplier_id"/>
+                            <field name="country_id"/>
+                            <field name="unit_of_measure"/>
+                            <field name="available_date"/>
+                            <field name="status"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="material_list_action" model="ir.actions.act_window">
+        <field name="name">material action</field>
+        <field name="res_model">material.list</field>
+    </record>
+
+    <menuitem
+            id="material_tree_menu"
+            name="Materials List"
+            parent="materials"
+            action="material_list_action"
+    />
+</odoo>

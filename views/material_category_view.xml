@@ -1,0 +1,43 @@
+<odoo>
+    <record id="material_category_view_tree" model="ir.ui.view">
+        <field name="name">material category tree</field>
+        <field name="model">material.category</field>
+        <field name="arch" type="xml">
+            <tree multi_edit="1">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="material_category_view_form" model="ir.ui.view">
+        <field name="name">material category form</field>
+        <field name="model">material.category</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group string="Group 1">
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="material_category_action" model="ir.actions.act_window">
+        <field name="name">material category action</field>
+        <field name="res_model">material.category</field>
+    </record>
+
+    <menuitem
+            id="material_category_tree_menu"
+            name="Materials Category"
+            parent="circular_exchange"
+            action="material_category_action"
+    />
+</odoo>

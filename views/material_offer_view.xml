@@ -1,0 +1,52 @@
+<odoo>
+    <record id="material_offer_view_tree" model="ir.ui.view">
+        <field name="name">material offer tree</field>
+        <field name="model">material.offer</field>
+        <field name="arch" type="xml">
+            <tree multi_edit="1">
+                <field name="material_request_id"/>
+                <field name="material_list_id"/>
+                <field name="proposed_qty"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="material_offer_view_form" model="ir.ui.view">
+        <field name="name">material offer form</field>
+        <field name="model">material.offer</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <header>
+                        <button name="accept_offer" type="object" string="Accept Offer" class="oe_highlight"
+                                invisible="not id or status != 'proposed'" />
+<!--                        <button name="reject_offer" type="object" string="Reject Offer" class="oe_highlight"-->
+<!--                                invisible="status != 'proposed'"/>-->
+                        <field name="status" widget="statusbar"/>
+                    </header>
+                    <group>
+                        <group string="Group 1">
+                            <field name="material_request_id"/>
+                            <field name="material_list_id"/>
+                            <field name="proposed_qty"/>
+                            <field name="status"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="material_offer_action" model="ir.actions.act_window">
+        <field name="name">material action</field>
+        <field name="res_model">material.offer</field>
+    </record>
+
+    <menuitem
+            id="material_offer_tree_menu"
+            name="Materials Offers List"
+            parent="materials"
+            action="material_offer_action"
+    />
+</odoo>
